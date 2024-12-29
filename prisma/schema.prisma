@@ -1,0 +1,48 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["mongoDb"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model supa_deals {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  @@map("supa-deals")
+}
+
+model GiftCard {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  type      CardTypes
+  value     Float
+  code      String    @unique
+  isUsed    Boolean   @default(false)
+  sentTo    String?
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+}
+
+model CardPurchases {
+  id        String          @id @default(auto()) @map("_id") @db.ObjectId
+  order_id  Int
+  email     String
+  quantity  Int
+  card_type String
+  status    purchaseStatus? @default(PENDING)
+  createdAt DateTime        @default(now()) @map("created_at")
+}
+
+enum CardTypes {
+  PSN
+  ITUNES
+  XBOX
+}
+
+enum purchaseStatus {
+  SUCCESS
+  PENDING
+  FAILED
+}
