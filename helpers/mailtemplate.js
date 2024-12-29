@@ -55,7 +55,7 @@ const mailTemplate = (emailData) => {
           <tr>
             <td align="center" style="background-color: #f4f4f4; padding: 20px; font-size: 12px; color: #777777;">
               <p style="margin: 0;">&copy; 2024 Supa Digital Hub. All rights reserved.</p>
-              <a style="margin: 0;" href="https://api.whatsapp.com/send?phone=233541210460&text=Describe%20your%20issue">What's App Us</a>
+              <a style="margin: 0;" href="https://api.whatsapp.com/send?phone=233549101775&text=Describe%20your%20issue">What's App Us</a>
             </td>
           </tr>
         </table>
