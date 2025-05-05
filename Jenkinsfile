@@ -16,7 +16,7 @@ pipeline {
         stage('Smoke Test') {
             steps {
                 sh '''
-                    chmod +x ./scripts/smoke2.sh
+                    chmod +x ./smoke2.sh
                     ls -a
                 '''
             }
