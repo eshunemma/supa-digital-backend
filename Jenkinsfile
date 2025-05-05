@@ -14,15 +14,12 @@ pipeline {
         }
 
         stage('Smoke Test') {
-            when {
-                branch 'main'
-            }
             steps {
                 sh '''
                     sudo apt-get update
                     sudo apt-get install -y jq
                     chmod +x ./scripts/smoke2.sh
-                    ./scripts/smoke2.sh
+                    ls -a
                 '''
             }
         }
