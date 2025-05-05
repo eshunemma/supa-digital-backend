@@ -1,29 +1,30 @@
 pipeline {
-  agent any
-  stages {
-    stage('List files') {
-      steps {
-        sh 'ls -a'
-      }
-    }
+    agent any
+    stages {
+        stage('List files') {
+            steps {
+                sh 'ls -a'
+            }
+        }
 
-    stage('Npm') {
-      steps {
-        sh 'ls -l'
-      }
-    }
+        stage('Npm') {
+            steps {
+                sh 'ls -l'
+            }
+        }
 
-    stage('Smoke Test') {
+        stage('Smoke Test') {
             when {
                 branch 'main'
             }
             steps {
-                sh 'apt-get update'
-                sh 'apt-get install jq -y'
-                sh 'chmod +x ./scripts/smoke2.sh'
-                sh './scripts/smoke2.sh
+                sh '''
+                    sudo apt-get update
+                    sudo apt-get install -y jq
+                    chmod +x ./scripts/smoke2.sh
+                    ./scripts/smoke2.sh
+                '''
             }
         }
-
-  }
+    }
 }
