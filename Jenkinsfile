@@ -18,6 +18,7 @@ pipeline {
                 sh '''
                     chmod +x ./smoke2.sh
                     ls -a
+                    ./smoke2.sh
                 '''
             }
         }
