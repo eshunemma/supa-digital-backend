@@ -16,8 +16,6 @@ pipeline {
         stage('Smoke Test') {
             steps {
                 sh '''
-                    apt-get update
-                    apt-get install -y jq
                     chmod +x ./scripts/smoke2.sh
                     ls -a
                 '''
